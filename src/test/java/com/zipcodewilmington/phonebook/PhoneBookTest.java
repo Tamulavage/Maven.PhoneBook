@@ -12,14 +12,14 @@ public class PhoneBookTest {
 
     @Before
     public void setup() {
-        this.testingPhoneBook = new PhoneBook() ;
+        this.testingPhoneBook = new PhoneBook();
     }
 
     @Test
     // addTest
     // not adding new object, just setting instance variables to existing object
     // Similiar to setters
-    public void addTest(){
+    public void addTest() {
         // Given
         String expectedName = "David T";
         String expectedNumber = "123-444-5343";
@@ -31,15 +31,14 @@ public class PhoneBookTest {
         String actualNumber = testingPhoneBook.lookUp(expectedName);
         String actualName = testingPhoneBook.reverseLookUp(expectedNumber);
 
-        Assert.assertEquals(expectedName,actualName);
+        Assert.assertEquals(expectedName, actualName);
         Assert.assertEquals(expectedNumber, actualNumber);
     }
 
 
-
     @Test
     // lookUpTest
-    public void lookUpTest(){
+    public void lookUpTest() {
         // Given
         String name = "Not David";
         String expectedNumber = "555-444-5343";
@@ -56,7 +55,7 @@ public class PhoneBookTest {
 
     @Test
     // lookUpTest
-    public void lookUpTestNotFound(){
+    public void lookUpTestNotFound() {
         // Given
         String name = "Not David";
         String nameNotIn = "Yello";
@@ -90,10 +89,9 @@ public class PhoneBookTest {
     }
 
 
-
     @Test
     // RemoveTest
-    public void removeTest(){
+    public void removeTest() {
         // Given
         String name = "To be Removed";
         String number = "123-444-5343";
@@ -110,7 +108,7 @@ public class PhoneBookTest {
 
     @Test
     // RemoveTest
-    public void removeNum2ndNumTest(){
+    public void removeNum2ndNumTest() {
         // Given
         String name = "Bob";
         String expectedNumber = "123-444-5343";
@@ -128,7 +126,7 @@ public class PhoneBookTest {
 
     @Test
     // RemoveTest
-    public void removeNumOnlyOneNumTest(){
+    public void removeNumOnlyOneNumTest() {
         // Given
         String name = "Bob";
         String number = "123-444-5343";
@@ -146,13 +144,12 @@ public class PhoneBookTest {
 
 
     @Test
-    public void displayTest()
-    {
-        testingPhoneBook.add("hello","1234");
-        testingPhoneBook.add("not here","2314");
-        testingPhoneBook.add("a person","0902");
-        testingPhoneBook.add("David","89123");
-        testingPhoneBook.add("David","892123");
+    public void displayTest() {
+        testingPhoneBook.add("hello", "1234");
+        testingPhoneBook.add("not here", "2314");
+        testingPhoneBook.add("a person", "0902");
+        testingPhoneBook.add("David", "89123");
+        testingPhoneBook.add("David", "892123");
 
         testingPhoneBook.removeNum("1234");
         testingPhoneBook.removeNum("892123");
