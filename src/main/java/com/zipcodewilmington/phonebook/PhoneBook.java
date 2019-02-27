@@ -16,35 +16,33 @@ public class PhoneBook {
 
 
         ArrayList<String> numbers = sm.get(name);
-    //    System.out.println(numbers);
+        //    System.out.println(numbers);
 
-        if(numbers == null) {
+        if (numbers == null) {
             numbers = new ArrayList<String>();
             numbers.add(number);
 
-            sm.put(name,numbers);
-    //        System.out.println(sm);
-        }
-        else {
+            sm.put(name, numbers);
+            //        System.out.println(sm);
+        } else {
             numbers.add(number);
         }
 
- //       System.out.println(numbers);
+        //       System.out.println(numbers);
 
     }
 
     public String lookUp(String name) {
-        ArrayList<String> numbers ; //= new ArrayList<String>();
+        ArrayList<String> numbers; //= new ArrayList<String>();
         StringBuilder sb = new StringBuilder();
 
-        if(sm.containsKey(name)) {
+        if (sm.containsKey(name)) {
 
             numbers = sm.get(name);
             for (String ele : numbers) {
                 sb.append(ele);
             }
-        }
-        else {
+        } else {
             sb.append("Not Found");
         }
 
@@ -55,17 +53,16 @@ public class PhoneBook {
     public String reverseLookUp(String number) {
         Iterator k = set.iterator();
         String retVal = "";
-        ArrayList<String> numbers ; //= new ArrayList<String>();
+        ArrayList<String> numbers; //= new ArrayList<String>();
         String temp = "";
 
-        while(k.hasNext()){
-            Map.Entry me = (Map.Entry)k.next();
-            numbers = (ArrayList)me.getValue();
-    //        System.out.println(numbers);
+        while (k.hasNext()) {
+            Map.Entry me = (Map.Entry) k.next();
+            numbers = (ArrayList) me.getValue();
+            //        System.out.println(numbers);
 
-            for(String ele: numbers) {
-                if(ele.equals(number))
-                {
+            for (String ele : numbers) {
+                if (ele.equals(number)) {
                     retVal = me.getKey().toString();
                 }
             }
@@ -73,8 +70,6 @@ public class PhoneBook {
 
 
         return retVal;
-
-
 
 
         // ** good for key/value string - changing for key value where value is ArrayList
@@ -103,9 +98,9 @@ public class PhoneBook {
 
         Iterator i = set.iterator();
 
-        while(i.hasNext()){
-            Map.Entry me = (Map.Entry)i.next();
-            System.out.println(me.getKey()+ " " + me.getValue());
+        while (i.hasNext()) {
+            Map.Entry me = (Map.Entry) i.next();
+            System.out.println(me.getKey() + " " + me.getValue());
         }
 
     }
@@ -113,29 +108,25 @@ public class PhoneBook {
     public void removeNum(String number) {
 
 
-        ArrayList<String> numbers ; //
-        String removedFromKey= "";
+        ArrayList<String> numbers; //
+        String removedFromKey = "";
         boolean fullRemoval = false;
-
-
 
 
         Iterator remove = set.iterator();
 
-        while(remove.hasNext()){
-            Map.Entry me = (Map.Entry)remove.next();
+        while (remove.hasNext()) {
+            Map.Entry me = (Map.Entry) remove.next();
 
-            numbers = (ArrayList)me.getValue();
-            for(String ele: numbers) {
-                if(ele.equals(number))
-                {
-                    if(numbers.size() == 1) {
+            numbers = (ArrayList) me.getValue();
+            for (String ele : numbers) {
+                if (ele.equals(number)) {
+                    if (numbers.size() == 1) {
                         //System.out.println(numbers.size());
-                       //sm.remove(me.getKey().toString());
+                        //sm.remove(me.getKey().toString());
                         removedFromKey = me.getKey().toString();
                         fullRemoval = true;
-                    }
-                    else {
+                    } else {
                         numbers.remove(ele);
                     }
 
@@ -145,9 +136,9 @@ public class PhoneBook {
             }
         }
 
-    if(fullRemoval) {
-        remove(removedFromKey);
-    }
+        if (fullRemoval) {
+            remove(removedFromKey);
+        }
 
     }
 }
